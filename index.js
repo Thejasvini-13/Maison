@@ -1,6 +1,8 @@
 import express from 'express';
 import cors from 'cors';
-
+import path from 'path';
+import { fileURLToPath } from 'url';
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const app = express();
 const PORT = process.env.PORT || 5000;
 app.use(cors({ origin: process.env.CLIENT_ORIGIN || 'http://localhost:5173' }));
@@ -57,4 +59,6 @@ app.use((err, _req, res, _next) => {
   console.error(err);
   res.status(500).json({ error: 'Something went wrong.' });
 });
+app.use(express.static(path.join(__dirname, 'dist')));
+app.use((_req, res) => res.sendFile(path.join(__dirname, 'dist', 'index.html')));
 app.listen(PORT, () => console.log(`Maison Lune API running at http://localhost:${PORT}`));
