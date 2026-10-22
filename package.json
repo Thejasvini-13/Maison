@@ -1,16 +1,18 @@
 {
-  "name": "maison-lune-client",
+  "name": "maison-lune",
   "version": "1.0.0",
   "private": true,
   "type": "module",
   "scripts": {
     "dev": "vite --host 0.0.0.0",
-    "build": "vite",
+    "build": "vite build",
+    "start": "node index.js",
     "preview": "vite preview"
   },
   "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.21.2",
     "lucide-react": "^0.468.0",
-    "maison-lune-ecommerce": "file:..",
     "react": "^18.3.1",
     "react-dom": "^18.3.1"
   },
