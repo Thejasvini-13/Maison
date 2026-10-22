@@ -50,7 +50,7 @@ app.post('/api/checkout', (req, res) => {
 
 app.post('/api/newsletter', (req, res) => {
   const email = String(req.body?.email || '').trim();
-  if (!/^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$/.test(email)) return res.status(400).json({ error: 'Enter a valid email address.' });
+  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) return res.status(400).json({ error: 'Enter a valid email address.' });
   // Demo only: connect an email marketing provider to persist subscriptions.
   res.status(201).json({ message: 'Subscription received', email });
 });
